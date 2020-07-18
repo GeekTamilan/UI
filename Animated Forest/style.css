@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.scene {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(#111425, #3751e0);
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+.moon {
+    position: relative;
+    top: 100px;
+    left: 400px;
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    border-radius: 50%;
+    z-index: 1000;
+}
+
+.moon::after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 15px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(#111425, #3751e0);
+    background-attachment: fixed;
+}
+
+.forest {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transform: scale(1.2);
+}
+
+.scene i {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    animation: animate linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+    10%,
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+}
+
+.bird {
+    background-image: url("bird-cells.svg");
+    background-size: auto 100%;
+    height: 125px;
+    width: 86px;
+    animation-name: fly;
+    animation-duration: 1s;
+    animation-timing-function: steps(10);
+    animation-iteration-count: infinite;
+}
+
+.bird-cont {
+    position: absolute;
+    left: 10%;
+    animation-name: birdFly;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.bird2 {
+    animation-delay: 2s;
+}
+
+@keyframes birdFly {
+    0% {
+        transform: translateX(-10vw) translateY(0vh);
+    }
+    10% {
+        transform: translateX(10vw) translateY(02vh);
+    }
+    20% {
+        transform: translateX(30vw) translateY(04vh);
+    }
+    30% {
+        transform: translateX(50vw) translateY(02vh);
+    }
+    40% {
+        transform: translateX(70vw) translateY(0vh);
+    }
+    50% {
+        transform: translateX(90vw) translateY(02vh);
+    }
+    60% {
+        transform: translateX(110vw) translateY(04vh);
+    }
+    70% {
+        transform: translateX(130vw) translateY(0vh);
+    }
+    80% {
+        transform: translateX(150vw) translateY(02vh);
+    }
+    90% {
+        transform: translateX(170vw) translateY(04vh);
+    }
+    100% {
+        transform: translateX(190vw) translateY(0vh);
+    }
+}
+
+@keyframes fly {
+    from {
+        background-position: 900px;
+    }
+    to {
+        background-position: 0px;
+    }
+}
